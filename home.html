@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,600|Open+Sans:600,700&display=swap">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1 { font-weight: 700; }
+    h2, h3, h4, h5, h6 { font-weight: 600; }
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N8K12FHH9F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-N8K12FHH9F');
+  </script>
+  <title>Ian Ooi</title>
+  <link rel="apple-touch-icon-precomposed" href="/favicon-180.png">
+</head>
+
+<body class="my-5">
+  <div class="mx-auto px-3" style="max-width: 45rem;">
+    <h1>🙋‍♂️ Hi, I’m Ian Ooi.</h1>
+    <p class="mt-4 small text-muted">Updated Oct 27, 2020 · 3 min read · ∞ reflect</p>
+    <p class="mt-4">Welcome to my site and I hope you enjoy the read.</p>
+    <p>
+      I’m an Australian software enthusiast residing in Taipei.
+      I enjoy meeting new people so drop me a note to say hi.
+    </p>
+    <p></p>
+    <h4 class="mt-5 mb-3">Topics that interest me</h4>
+    <p>Side projects with hopes of a breakthrough one day. 🤞</p>
+    <div id="topic-links" class="row"></div>
+    <h4 class="mt-5 mb-3">Random ideas of mine</h4>
+    <p>Original until proven otherwise. 😉</p>
+    <div id="idea-cards" class="row"></div>
+    <h4 class="mt-5 mb-3">Let’s talk</h4>
+    <p>I aim for same day replies during normal hours (UTC+8), otherwise next day. 👍</p>
+    <form class="contact"
+          action="https://docs.google.com/forms/d/e/1FVkgTPcbYdHQafR9ZSlJnKClXcLKUILXbKTUs0gYSUI/formResponse"
+          target="hidden_iframe" method="post" onsubmit="form_submitted = true;">
+      <input type="hidden" name="entry.364363688" value="contact">
+      <input id="ga_id" type="hidden" name="entry.1527270333" value="">
+      <div class="row">
+        <div class="col-md-6">
+          <input class="form-control mt-1" type="text" name="entry.331755147" placeholder="Your Name" required="">
+          <input class="form-control mt-1" type="email" name="entry.1915248071" placeholder="Email" required="">
+        </div>
+      </div>
+      <textarea class="form-control mt-1" name="entry.666382750" placeholder="Message" rows="5" required=""></textarea>
+      <button class="btn btn-dark mt-1" type="submit">Send</button>
+    </form>
+  </div>
+  <div class="d-none">
+    <div id="link">
+      <div class="col-md-6 my-2">
+        <div class="card h-100">
+          <div class="card-body">
+            <h6 class="card-title">
+              <a href="{url}" target="_blank">{title}</a>
+            </h6>
+            <p class="card-text">{text}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="card">
+      <div class="col-md-6 my-2">
+        <div class="card h-100">
+          <div class="card-body">
+            <h6 class="card-title">{title}</h6>
+            <p class="card-text">{text}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  "use strict";
+
+  // Posts
+  var posts = {
+    topics: [
+      { title: "Remote work",
+        url: "https://en.wikipedia.org/wiki/Telecommuting",
+        text: "Working from anywhere is the present and future. Anything else is holding on to the past." },
+      { title: "Organizational design",
+        url: "https://en.wikipedia.org/wiki/Organizational_structure",
+        text: "Business is a team sport. Have the right roles and people. Everything else will follow." },
+      { title: "Enterprise software",
+        url: "https://en.wikipedia.org/wiki/Enterprise_software",
+        text: "How much time is wasted because <em>Shit Is Everywhere</em>? The race to solve continues." },
+      { title: "Point & click programming",
+        url: "https://en.wikipedia.org/wiki/No-code_development_platform",
+        text: "Democratized programming will elevate productivity. The human-bot synergy is coming." },
+    ],
+    ideas: [
+      { title: "What is career success?",
+        text: "<a href='https://www.youtube.com/watch?v=StTqXEQ2l-Y' target='_blank'>This</a> is how you feel when your alarm goes off Monday morning." },
+      { title: "What is product success?",
+        text: "Make it super easy for customers to leave and see if they decide to stay." },
+      { title: "Don’t settle, keep trying.",
+        text: "Real problems are hard to solve. So persevere and keep moving forward every day." },
+      { title: "Act fast, but don’t rush.",
+        text: "Don’t start anything until you have a clear definition of what success looks like." },
+      { title: "Appreciate compromises.",
+        text: "Wanting everything will leave you with nothing. Enjoy the art of give and take." },
+      { title: "Take calculated risks.",
+        text: "Good instincts are earned by learning from your mistakes and the lessons of others." },
+      { title: "Rules must be broken.",
+        text: "Rules are yesterday’s best ideas. Today we’ll come up with something better." },
+      { title: "Life is a one-spawn game.",
+        text: "Life = time and time we have is short. So spend it on whom and what you love. Now." },
+    ],
+  };
+  var insertions = [
+    { name: "topics", insert_id: "topic-links", template_id: "link" },
+    { name: "ideas", insert_id: "idea-cards", template_id: "card" },
+  ];
+  var left_placeholder = "{";
+  var right_placeholder = "}";
+  for (var i = 0; i < insertions.length; i++) {
+    var insertion_element = document.getElementById(insertions[i]["insert_id"]);
+    var template_element = document.getElementById(insertions[i]["template_id"]);
+    var template_html = template_element.innerHTML;
+    var data = posts[insertions[i]["name"]];
+    for (var j = 0; j < data.length; j++) {
+      var data_keys = Object.keys(data[j]);
+      for (var k = 0; k < data_keys.length; k++) {
+        var output_html = (k == 0) ? template_html : output_html;
+        var old_value = left_placeholder + data_keys[k] + right_placeholder;
+        var new_value = data[j][data_keys[k]];
+        output_html = output_html.replace(old_value, new_value);
+      }
+      insertion_element.insertAdjacentHTML("beforeend", output_html);
+    }
+  }
+
+  // Contact form
+  var form_submitted = false;
+  /*
+  window.addEventListener("load", function () {
+    var ga_id = false;
+    ga(function (tracker) {
+      ga_id = tracker.get('clientId');
+    });
+    document.getElementById('ga_id').value = "'" + ga_id || 'undefined';
+  });
+  */
+</script>
+
+</html>
