@@ -30,24 +30,30 @@
           href="https://www.google-analytics.com/collect?v=1&tid=UA-78077877-8&cid=nojs&t=pageview&dl=https%3A%2F%2Fianooi.github.io%2F&dt=Ian%20Ooi&cd1=nojs">
   </noscript>
   <script>
-    const user_id = "20210831"
     const time_zone = new Intl.DateTimeFormat().resolvedOptions().timeZone
     const utc_timestamp = new Date().toISOString()
     const tz_offset = -(new Date().getTimezoneOffset())
     const tz_timestamp_offset = new Date(new Date().getTime() + tz_offset * 60000)
     const tz_timestamp = tz_timestamp_offset.toISOString().slice(0, -1)
+    const url_params = (new URL(document.location)).searchParams
+    const link_id = url_params.get("id") || "null"
 
     window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
     ga("create", {
       trackingId: "UA-78077877-8",
       cookieDomain: "auto",
     })
-    ga("set", {
-      dimension1: user_id,
-      dimension2: time_zone,
-      dimension3: utc_timestamp,
-      dimension4: tz_timestamp,
+    // Wait for analytics to load to get clientID
+    ga(function (tracker) {
+      ga("set", {
+        dimension1: tracker.get("clientId"),
+        dimension2: time_zone,
+        dimension3: utc_timestamp,
+        dimension4: tz_timestamp,
+        dimension5: link_id,
+      })
     })
+    // Use event hit to consolidate all hits
     ga("send", {
       hitType: "event",
       eventCategory: "page",
