@@ -54,12 +54,15 @@
     ga("create", {
       trackingId: "UA-78077877",
       cookieDomain: "auto",
+    })
+
+    ga("set", {
       dimension1: user_id,
       dimension2: time_zone,
       dimension3: utc_timestamp,
       dimension4: tz_timestamp,
     })
-    
+
     /*
     // local files only
     ga("set", {
