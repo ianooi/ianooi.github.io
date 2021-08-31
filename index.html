@@ -4,13 +4,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Ian Ooi</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N8K12FHH9F"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,600|Open+Sans:600,700&display=swap">
+  <link rel="apple-touch-icon-precomposed" href="/favicon-180.png">
+  
   <style>
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: "Inter", sans-serif;
       margin-left: auto;
       margin-right: auto;
       max-width: 45rem;
@@ -18,15 +23,30 @@
     h1 { font-weight: 700; }
     h2, h3, h4, h5, h6 { font-weight: 600; }
   </style>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N8K12FHH9F"></script>
+
+  <!-- Send data to GA -->
+  <noscript>
+    <link rel="stylesheet" href="https://www.google-analytics.com/collect?v=1&tid=G-N8K12FHH9F&cid=nojs&t=pageview&dl=home&dt=Ian+Ooi">
+  </noscript>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-N8K12FHH9F');
+    const user_id = data.ga_params.user_id
+    const time_zone = new Intl.DateTimeFormat().resolvedOptions().timeZone
+    const utc_timestamp = new Date().toISOString()
+    const tz_offset = -(new Date().getTimezoneOffset())
+    const tz_timestamp_offset = new Date(new Date().getTime() + tz_offset * 60000)
+    const tz_timestamp = tz_timestamp_offset.toISOString().slice(0, -1)
+
+    window.dataLayer = window.dataLayer || []
+    function gtag() { dataLayer.push(arguments) }
+    gtag("js", new Date())
+    // gtag("config", "G-N8K12FHH9F");
+    gtag("config", "G-N8K12FHH9F", {
+      dimension1: user_id,
+      dimension2: time_zone,
+      dimension3: utc_timestamp,
+      dimension4: tz_timestamp,
+    })
   </script>
-  <title>Ian Ooi</title>
-  <link rel="apple-touch-icon-precomposed" href="/favicon-180.png">
 </head>
 
 <body class="my-5">
@@ -109,7 +129,7 @@
     ],
     ideas: [
       { title: "What is career success?",
-        text: "<a href='https://www.youtube.com/watch?v=StTqXEQ2l-Y' target='_blank'>This</a> is how you feel when your alarm goes off Monday morning." },
+        text: '<a href="https://www.youtube.com/watch?v=StTqXEQ2l-Y" target="_blank">This</a> is how you feel when your alarm goes off Monday morning.' },
       { title: "What is product success?",
         text: "Make it super easy for customers to leave and see if they decide to stay." },
       { title: "Don’t settle, keep trying.",
@@ -155,9 +175,9 @@
   window.addEventListener("load", function () {
     var ga_id = false;
     ga(function (tracker) {
-      ga_id = tracker.get('clientId');
+      ga_id = tracker.get("clientId");
     });
-    document.getElementById('ga_id').value = "'" + ga_id || 'undefined';
+    document.getElementById("ga_id").value = ga_id || "undefined";
   });
   */
 </script>
